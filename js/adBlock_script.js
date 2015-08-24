@@ -15,7 +15,8 @@ $(function() {
 				"alibaba.com",
 				"jd.com",
 				"qq.com",
-				"hotjob.cn" //美团校招
+				"hotjob.cn", //美团校招
+				"csdn.net"
 			];
 
 			//正则匹配
