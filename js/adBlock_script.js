@@ -81,7 +81,7 @@ $(function() {
 		//简单的智能算法
 		findAdPossible: function() {
 			var sap = $("div iframe"),
-				ad_img = $("div script").parent().find("img,embed"),
+				ad_img = $("div script").parent().find("img,embed");
 				//float_img = $("div object").parent().find("img,embed");
 
 			this.arrayDel(sap, 360, 200);
