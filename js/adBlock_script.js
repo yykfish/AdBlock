@@ -65,7 +65,8 @@ $(function() {
 			var ad_class_name = [
 				"cproIframe_u410704_3",
 				"img_ad",
-				"hover_btn"
+				"hover_btn",
+				"jdAdContInner"
 			];
 
 			for (var i = 0; i < ad_id_name.length; i++) {
@@ -81,11 +82,11 @@ $(function() {
 		findAdPossible: function() {
 			var sap = $("div iframe"),
 				ad_img = $("div script").parent().find("img,embed"),
-				float_img = $("div object").parent().find("img,embed");
+				//float_img = $("div object").parent().find("img,embed");
 
 			this.arrayDel(sap, 360, 200);
 			this.arrayDel(ad_img, 350, 150);
-			this.arrayDel(float_img, 350, 150);
+			//this.arrayDel(float_img, 350, 150);
 		},
 		arrayDel: function(arr, conWidth, conHeight) {
 			var len = arr.length;
