@@ -34,7 +34,7 @@ $(function() {
 
 			if (checkFlag == 1) {
 				this.clear();
-				this.findAdPossible();
+				//this.findAdPossible();
 			}
 		},
 		clear: function() {
@@ -66,7 +66,9 @@ $(function() {
 				"cproIframe_u410704_3",
 				"img_ad",
 				"hover_btn",
-				"jdAdContInner"
+				"jdAdContInner",
+				"sinaad-toolkit-box",
+				"popBox_bg"
 			];
 
 			for (var i = 0; i < ad_id_name.length; i++) {
@@ -79,27 +81,27 @@ $(function() {
 			}
 		},
 		//简单的智能算法
-		findAdPossible: function() {
-			var sap = $("div iframe"),
-				ad_img = $("div script").parent().find("img,embed");
-				//float_img = $("div object").parent().find("img,embed");
+		// findAdPossible: function() {
+		// 	var sap = $("div iframe"),
+		// 		ad_img = $("div script").parent().find("img,embed");
+		// 		//float_img = $("div object").parent().find("img,embed");
 
-			this.arrayDel(sap, 360, 200);
-			this.arrayDel(ad_img, 350, 150);
-			//this.arrayDel(float_img, 350, 150);
-		},
-		arrayDel: function(arr, conWidth, conHeight) {
-			var len = arr.length;
+		// 	this.arrayDel(sap, 360, 200);
+		// 	this.arrayDel(ad_img, 350, 150);
+		// 	//this.arrayDel(float_img, 350, 150);
+		// },
+		// arrayDel: function(arr, conWidth, conHeight) {
+		// 	var len = arr.length;
 
-			for (var i = 0; i < len; i++) {
-				var self = arr.eq(i);
+		// 	for (var i = 0; i < len; i++) {
+		// 		var self = arr.eq(i);
 
-				if (self.width() <= conWidth || self.height() <= conHeight) {
-					self.remove();
-				}
+		// 		if (self.width() <= conWidth || self.height() <= conHeight) {
+		// 			self.remove();
+		// 		}
 
-			}
-		},
+		// 	}
+		// },
 		init: function() {
 			this.checkUrl();
 		}
@@ -109,7 +111,7 @@ $(function() {
 		clearAd.init();
 
 		//为防止ajax异步延时加载的广告隔4s再清除一次
-		setTimeout(function() {
+		setInterval(function() {
 			clearAd.init();
 		}, 4000)
 	});
