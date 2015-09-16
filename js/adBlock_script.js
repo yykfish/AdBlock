@@ -7,7 +7,7 @@ $(function() {
 			var checkFlag = 0,
 				url = window.location.href;
 
-			//不需要清除广告的域
+			//不需要清除广告的域名
 			var notDel = [
 				"baidu.com",
 				"taobao.com",
@@ -34,11 +34,11 @@ $(function() {
 
 			if (checkFlag == 1) {
 				this.clear();
-				//this.findAdPossible();
+				this.findAdPossible();
 			}
 		},
 		clear: function() {
-			//此处可手动添加广告框id名
+			//广告框id
 			var ad_id_name = [
 				"cproIframe2001holder",
 				"cproIframe2002holder",
@@ -61,7 +61,7 @@ $(function() {
 				"cproIframe2001",
 			];
 
-			//此处添加广告框类名
+			//广告框类名
 			var ad_class_name = [
 				"cproIframe_u410704_3",
 				"img_ad",
@@ -72,7 +72,6 @@ $(function() {
 			];
 
 			for (var i = 0; i < ad_id_name.length; i++) {
-				//使用remove删除节点，提升性能
 				$("#" + ad_id_name[i]).remove();
 			}
 
@@ -80,28 +79,17 @@ $(function() {
 				$("." + ad_class_name[i]).remove();
 			}
 		},
-		//简单的智能算法
-		// findAdPossible: function() {
-		// 	var sap = $("div iframe"),
-		// 		ad_img = $("div script").parent().find("img,embed");
-		// 		//float_img = $("div object").parent().find("img,embed");
 
-		// 	this.arrayDel(sap, 360, 200);
-		// 	this.arrayDel(ad_img, 350, 150);
-		// 	//this.arrayDel(float_img, 350, 150);
-		// },
-		// arrayDel: function(arr, conWidth, conHeight) {
-		// 	var len = arr.length;
+		findAdPossible: function() {
+			var possibleAdDiv = $("body").find("div");
+			var i;
 
-		// 	for (var i = 0; i < len; i++) {
-		// 		var self = arr.eq(i);
-
-		// 		if (self.width() <= conWidth || self.height() <= conHeight) {
-		// 			self.remove();
-		// 		}
-
-		// 	}
-		// },
+			for(i = 0;i < possibleAdDiv.length;i++)
+			{
+				if(possibleAdDiv[i].css("position")=="fixed")
+					possibleAdDiv[i].remove();
+			}
+		},
 		init: function() {
 			this.checkUrl();
 		}
